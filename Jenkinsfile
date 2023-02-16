@@ -6,12 +6,12 @@ pipeline{
   stages{
     stage("Docker version"){
       steps{
-        sh 'docker -V'
+        sh 'docker -v'
       }
     }
     stage("Git Version"){
       steps{
-        sh 'git -V'
+        sh 'git -v'
       }
     }
   }
