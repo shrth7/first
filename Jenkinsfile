@@ -14,6 +14,16 @@ pipeline{
         sh 'git --version'
       }
     }
+    stage("Build Image"){
+      steps{
+        sh 'docker build -t newImage:${BUILD_NUMBER} .'
+      }
+    }
+    stage("Check Image"){
+      steps{
+        sh 'docker images'
+      }
+    }
   }
 }     
 // comment
