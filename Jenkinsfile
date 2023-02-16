@@ -20,8 +20,10 @@ pipeline{
       }
     }
     stage("Check Image"){
-      steps{
-        sh 'docker images'
+      retry(3){
+        steps{
+          sh 'docker images'
+        }
       }
     }
   }
