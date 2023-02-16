@@ -5,16 +5,21 @@ pipeline{
     timeout(time: 10,unit: 'SECONDS')
   }
   stages{
-    stage("Docker version"){
-      steps{
-        sh 'docker -v'
-      }
-    }
-    stage("Git Version"){
-      steps{
-        sh 'git --version'
-      }
-    }
+    stage("doing parallel){
+          parallel{
+            
+              stage("Docker version"){
+                steps{
+                  sh 'docker -v'
+                }
+              }
+              stage("Git Version"){
+                steps{
+                  sh 'git --version'
+                }
+              }
+          }
+          }
     stage("Build Image"){
       steps{
         sh 'docker build -t newimage:${BUILD_NUMBER} .'
