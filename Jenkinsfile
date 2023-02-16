@@ -5,7 +5,7 @@ pipeline{
     timeout(time: 10,unit: 'SECONDS')
   }
   stages{
-    stage("doing parallel){
+    stage("doing parallel"){
           parallel{
             
               stage("Docker version"){
