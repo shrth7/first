@@ -4,6 +4,7 @@ pipeline{
     timestamps()
     timeout(time: 10,unit: 'SECONDS')
     skipDefaultCheckout()
+    buildDiscarder(logRotator(numToKeepStr: '10'))
   }
   stages{
     stage("doing parallel"){
