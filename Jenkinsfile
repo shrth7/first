@@ -3,6 +3,7 @@ pipeline{
   options{
     timestamps()
     timeout(time: 10,unit: 'SECONDS')
+    skipDefaultCheckout()
   }
   stages{
     stage("doing parallel"){
