@@ -24,14 +24,14 @@ pipeline{
           }
     stage("Build Image"){
       steps{
-        sh 'docker build -t newimage:${BUILD_NUMBER} .'
+        sh 'docker build -t my-apache2 .'
       }
     }
-    stage("Check Image"){
+    stage("deploy"){
     
       steps{
         retry(3){
-          sh 'docker images'
+          sh 'docker run -dit --name my-running-app -p 8080:80 my-apache2'
         }
       }
     }
