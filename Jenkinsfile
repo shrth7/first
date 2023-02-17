@@ -31,7 +31,7 @@ pipeline{
     
       steps{
         retry(3){
-          sh 'docker run -dit --name my-running-app -p 8080:80 my-apache2'
+          sh 'docker run -dit --name my-running-app2 -p 8080:80 my-apache2'
         }
       }
     }
